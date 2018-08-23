@@ -1,0 +1,42 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../neocloud-items-grid/neocloud-items-grid.html">
+
+<dom-module id="nc-users-grid">
+  <template>
+    <style>
+    </style>
+
+
+    <neocloud-items-grid
+                data="{{itemsGridData}}"
+                language="{{language}}"
+                is-paginated
+                auto-flow
+                dimension="130"
+                on-item-selected="_userSelected">
+    </neocloud-items-grid>
+
+
+  </template>
+
+  <script>
+    class NeocloudUsersGrid extends Polymer.Element {
+      static get is() { return 'nc-users-grid'; }
+      static get properties() {
+        return {
+          itemsGridData: {
+            type: Object,
+            value: {}
+          },
+          language: String
+        };
+      }
+
+      _userSelected(item){
+        this.dispatchEvent(new CustomEvent('user-selected', {detail: item.detail, bubbles: true, composed: true }));
+      }
+    }
+
+    window.customElements.define(NeocloudUsersGrid.is, NeocloudUsersGrid);
+  </script>
+</dom-module>

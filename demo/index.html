@@ -1,0 +1,86 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2017 Neo
+-->
+<html lang="es">
+<head>
+  <title>nc-users-grid demo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../polymer/polymer-element.html">
+  <link rel="import" href="../../iron-ajax/iron-ajax.html">
+
+  <link rel="import" href="../nc-users-grid.html">
+  <style>
+    body{
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Roboto', 'Noto', sans-serif;
+    }
+  </style>
+</head>
+<body unresolved>
+<dom-module id="nc-users-grid-demo">
+  <template>
+    <style>
+     :host {
+        display: block;
+      }
+
+      div{
+        margin-bottom: 20px;
+      }
+
+      .containerProducts{
+        height: 76px;
+        width: 456px;
+        background-color: #EF9A9A;
+      }
+
+      .containerUsers{
+        height: 274px;
+        width: 310px;
+        background-color: #bee6fd;
+      }
+
+
+    </style>
+
+    <iron-ajax id="getUsersList"
+            auto
+            url="data/users"
+            method="get"
+            handle-as="json"
+            last-response="{{usersList}}">
+    </iron-ajax>
+      
+    <div class="containerUsers">
+      <nc-users-grid
+                  items-grid-data='{{usersList.data.data}}'
+                  language="es"
+                  on-user-selected="_userSelected">
+      </nc-users-grid>
+    </div>
+
+  </template>
+  <script>
+    class NeocloudUsersGridDemo extends Polymer.Element {
+      static get is() {
+        return 'nc-users-grid-demo';
+      }
+
+      _userSelected(item){
+        console.log(item);
+      }
+    }
+    window.customElements.define(NeocloudUsersGridDemo.is, NeocloudUsersGridDemo);
+  </script>
+</dom-module>
+<nc-users-grid-demo></nc-users-grid-demo>
+</body>
+</html>
