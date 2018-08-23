@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../neocloud-items-grid/neocloud-items-grid.html">
+<link rel="import" href="../nc-items-grid/nc-items-grid.html">
 
 <dom-module id="nc-users-grid">
   <template>
@@ -7,14 +7,14 @@
     </style>
 
 
-    <neocloud-items-grid
+    <nc-items-grid
                 data="{{itemsGridData}}"
                 language="{{language}}"
                 is-paginated
                 auto-flow
                 dimension="130"
                 on-item-selected="_userSelected">
-    </neocloud-items-grid>
+    </nc-items-grid>
 
 
   </template>
