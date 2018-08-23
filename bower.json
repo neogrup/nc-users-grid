@@ -1,6 +1,6 @@
 {
   "name": "nc-users-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Polymer component to display users grid",
   "authors": [
     "edgar.piera@neogrup.com"
@@ -8,7 +8,7 @@
   "keywords": [
     "web-components",
     "polymer",
-    "neocloud"
+    "nc"
   ],
   "main": "nc-users-grid.html",
   "repository": {
