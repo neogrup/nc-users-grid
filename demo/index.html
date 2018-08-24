@@ -29,7 +29,15 @@ Copyright (c) 2017 Neo
   <template>
     <style>
      :host {
+        color: #fff;
+        --app-secondary-color: #253855;
         display: block;
+      }
+
+      paper-button{
+        margin: 10px 5px;
+        background-color: var(--app-secondary-color);
+        color: white;
       }
 
       div{
@@ -63,7 +71,8 @@ Copyright (c) 2017 Neo
       <nc-users-grid
                   items-grid-data='{{usersList.data.data}}'
                   language="es"
-                  on-user-selected="_userSelected">
+                  on-user-selected="_userSelected"
+                  password-required>
       </nc-users-grid>
     </div>
 
