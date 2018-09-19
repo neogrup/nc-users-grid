@@ -1,6 +1,6 @@
 {
   "name": "nc-users-grid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Polymer component to display users grid",
   "authors": [
     "edgar.piera@neogrup.com"

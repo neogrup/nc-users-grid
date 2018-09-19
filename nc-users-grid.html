@@ -32,16 +32,12 @@
             type: Object,
             value: {}
           },
-          language: String,
-          passwordRequired:{
-            type: Boolean,
-            value: false
-          }
+          language: String
         };
       }
 
       _userSelected(user){
-        if(this.passwordRequired){
+        if(user.detail.needPassword === 'S'){
           this._openPasswordDialog(user.detail);
         } else{
           this.dispatchEvent(new CustomEvent('user-selected', {detail: user.detail, bubbles: true, composed: true }));
@@ -55,7 +51,7 @@
 
       _openPasswordDialog(user){
         this.$.passwordDialog.set('userData.name', user.name);
-        this.$.passwordDialog.set('userData.id', user.code);
+        this.$.passwordDialog.set('userData.code', user.code);
         this.$.passwordDialog.open();
       }
     }
