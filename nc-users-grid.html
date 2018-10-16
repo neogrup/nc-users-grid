@@ -9,18 +9,18 @@
     </style>
 
     <nc-items-grid
-                data="{{itemsGridData}}"
-                language="{{language}}"
-                is-paginated
-                auto-flow
-                dimension="130"
-                on-item-selected="_userSelected">
+        items-grid-data="{{usersGridData}}"
+        language="{{language}}"
+        is-paginated
+        auto-flow
+        dimension="130"
+        on-item-selected="_userSelected">
     </nc-items-grid>
 
     <nc-password-dialog
-      id="passwordDialog"
-      language="{{language}}"
-      on-password-accepted="_passwordAccepted"></nc-password-dialog>
+        id="passwordDialog"
+        language="{{language}}"
+        on-password-accepted="_passwordAccepted"></nc-password-dialog>
   </template>
 
   <script>
@@ -28,9 +28,9 @@
       static get is() { return 'nc-users-grid'; }
       static get properties() {
         return {
-          itemsGridData: {
-            type: Object,
-            value: {}
+          usersGridData: {
+            type: Array,
+            value: []
           },
           language: String
         };
@@ -40,13 +40,13 @@
         if(user.detail.needPassword === 'S'){
           this._openPasswordDialog(user.detail);
         } else{
-          this.dispatchEvent(new CustomEvent('user-selected', {detail: user.detail, bubbles: true, composed: true }));
+          this.dispatchEvent(new CustomEvent('user-selected', {detail: {user: user.detail, password: ''}, bubbles: true, composed: true }));
         }
         
       }
 
-      _passwordAccepted(user){
-        this.dispatchEvent(new CustomEvent('user-selected', {detail: user.detail, bubbles: true, composed: true }));
+      _passwordAccepted(e){
+        this.dispatchEvent(new CustomEvent('user-selected', {detail:{user: e.detail.user, password: e.detail.password}, bubbles: true, composed: true }));
       }
 
       _openPasswordDialog(user){
