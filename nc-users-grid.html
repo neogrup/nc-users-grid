@@ -13,7 +13,7 @@
         language="{{language}}"
         is-paginated
         auto-flow
-        dimension="130"
+        dimension="{{dimensionUsersButtons}}"
         on-item-selected="_userSelected">
     </nc-items-grid>
 
@@ -32,7 +32,11 @@
             type: Array,
             value: []
           },
-          language: String
+          language: String,
+          dimensionUsersButtons: {
+            type: Number,
+            reflectToAttribute: true
+          },
         };
       }
 
