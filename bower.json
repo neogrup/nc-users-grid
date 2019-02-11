@@ -1,6 +1,6 @@
 {
   "name": "nc-users-grid",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Polymer component to display users grid",
   "authors": [
     "edgar.piera@neogrup.com"
@@ -20,8 +20,8 @@
   "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "nc-items-grid": "NEOGRUP/nc-items-grid#^1.0.0",
-    "nc-password-dialog": "NEOGRUP/nc-password-dialog#^0.5.1"
+    "nc-items-grid": "NEOGRUP/nc-items-grid#^1.0.16",
+    "nc-password-dialog": "NEOGRUP/nc-password-dialog#^1.0.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
