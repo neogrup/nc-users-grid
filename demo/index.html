@@ -5,91 +5,95 @@ Copyright (c) 2017 Neo
 -->
 <html lang="es">
 <head>
-  <title>nc-users-grid demo</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <title>nc-users-grid demo</title>
 
-  <link rel="import" href="../../polymer/polymer-element.html">
-  <link rel="import" href="../../iron-ajax/iron-ajax.html">
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
 
-  <link rel="import" href="../nc-users-grid.html">
-  <style>
-    body{
-      margin: 0px;
-      padding: 0px;
-      font-family: 'Roboto', 'Noto', sans-serif;
-    }
-  </style>
-</head>
-<body unresolved>
-<dom-module id="nc-users-grid-demo">
-  <template>
-    <style>
-     :host {
-        color: #fff;
-        --app-secondary-color: #253855;
-        display: block;
-      }
-
-      paper-button{
-        margin: 10px 5px;
-        background-color: var(--app-secondary-color);
-        color: white;
-      }
-
-      div{
-        margin-bottom: 20px;
-      }
-
-      .containerProducts{
-        height: 76px;
-        width: 456px;
-        background-color: #EF9A9A;
-      }
-
-      .containerUsers{
-        height: 274px;
-        width: 310px;
-        background-color: #bee6fd;
-      }
-
-
-    </style>
-
-    <iron-ajax id="getUsersList"
-            auto
-            url="data/users"
-            method="get"
-            handle-as="json"
-            last-response="{{usersList}}">
-    </iron-ajax>
-      
-    <div class="containerUsers">
-      <nc-users-grid
-                  items-grid-data='{{usersList.data.data}}'
-                  language="es"
-                  on-user-selected="_userSelected"
-                  password-required>
-      </nc-users-grid>
-    </div>
-
-  </template>
-  <script>
-    class NcUsersGridDemo extends Polymer.Element {
-      static get is() {
-        return 'nc-users-grid-demo';
-      }
-
-      _userSelected(item){
-        console.log(item);
-      }
-    }
-    window.customElements.define(NcUsersGridDemo.is, NcUsersGridDemo);
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
   </script>
-</dom-module>
-<nc-users-grid-demo></nc-users-grid-demo>
+
+  <script type="module" src="../nc-users-grid.js"></script>
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+</head>
+<body>
+  <div class="vertical-section-container centered">
+    <h3>nc-users-grid demo</h3>
+    <demo-snippet>
+      <template>
+        <demo-nc-users-grid></demo-nc-users-grid>
+      </template>
+    </demo-snippet>
+  </div>
+
+  <script type="module">
+    import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+    import '@polymer/iron-ajax/iron-ajax.js';
+
+    class DemoNcUsersGrid extends PolymerElement {
+      static get template() {
+        return html`
+          <style>
+            .container{
+              height: 220px;
+            }
+          </style>
+
+          <iron-ajax 
+              id="getUsersList"
+              auto
+              url="data/users"
+              method="get"
+              handle-as="json"
+              last-response="{{dataUsersList}}">
+          </iron-ajax>
+
+          <div class="container">
+            <nc-users-grid
+                id="usersGrid"
+                users-grid-data="{{dataUsersList.data}}"
+                height-users-grid-items="[[dimensionGridButtons]]"
+                width-users-grid-items="[[dimensionGridButtons]]"
+                language="{{language}}"
+                on-user-selected="_userSelected"
+                password-required>
+            </nc-users-grid>
+          </div>
+        `;
+      }
+
+      static get properties() {
+        return {
+          language: {
+            type: String,
+            value: 'es'
+          },
+          showPrice: {
+            type: Boolean,
+            value: true
+          },
+          dimensionGridButtons: {
+            type: Number,
+            value: 120
+          }
+        }
+      }
+
+      _userSelected(user){
+        console.log(user);
+      }
+    }
+    window.customElements.define('demo-nc-users-grid', DemoNcUsersGrid);
+  </script>
 </body>
 </html>
