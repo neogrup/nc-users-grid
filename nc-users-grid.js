@@ -25,6 +25,7 @@ class NcUsersGrid extends PolymerElement {
           item-height="[[heightUsersGridItems]]"
           item-width="[[widthUsersGridItems]]"
           item-margin="[[marginUsersGridItems]]"
+          animations="[[animations]]"
           on-item-selected="_userSelected">
       </nc-items-grid>
 
@@ -46,6 +47,10 @@ class NcUsersGrid extends PolymerElement {
       heightUsersGridItems: {
         type: Number,
         reflectToAttribute: true
+      },
+      animations: {
+        type: Boolean,
+        value: true
       },
       widthUsersGridItems: {
         type: Number,
