@@ -32,7 +32,8 @@ class NcUsersGrid extends PolymerElement {
       <nc-password-dialog 
           id="passwordDialog" 
           language="{{language}}" 
-          on-password-accepted="_passwordAccepted">
+          on-password-accepted="_passwordAccepted"
+          show-keyboard="{{showKeyboard}}">
       </nc-password-dialog>
     `;
   }
@@ -59,7 +60,10 @@ class NcUsersGrid extends PolymerElement {
       marginUsersGridItems: {
         type: Number,
         reflectToAttribute: true
-      }
+      },
+      showKeyboard: {
+        type: String,
+      },
     };
   }
 

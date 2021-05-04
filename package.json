@@ -10,7 +10,7 @@
     "url": "https://github.com/NEOGRUP/nc-users-grid"
   },
   "name": "@neogrup/nc-users-grid",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
