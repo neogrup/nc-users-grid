@@ -66,6 +66,7 @@ Copyright (c) 2017 Neo
                 width-users-grid-items="[[dimensionGridButtons]]"
                 language="{{language}}"
                 on-user-selected="_userSelected"
+                on-user-selected-extern="_userSelectedExtern"
                 password-required>
             </nc-users-grid>
           </div>
@@ -91,6 +92,12 @@ Copyright (c) 2017 Neo
 
       _userSelected(user){
         console.log(user.detail.password, user.detail.user);
+      }
+
+      _userSelectedExtern(user){
+        console.log(user.detail.user);
+        user.detail.user.code = '1234';
+        this.$.usersGrid._openPasswordDialog(user.detail);
       }
     }
     window.customElements.define('demo-nc-users-grid', DemoNcUsersGrid);
