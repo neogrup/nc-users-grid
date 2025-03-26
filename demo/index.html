@@ -95,8 +95,8 @@ Copyright (c) 2017 Neo
       }
 
       _userSelectedExtern(user){
-        console.log(user.detail.user);
-        user.detail.user.code = '1234';
+        console.log(user.detail);
+        user.detail.code = '1234';
         this.$.usersGrid._openPasswordDialog(user.detail);
       }
     }

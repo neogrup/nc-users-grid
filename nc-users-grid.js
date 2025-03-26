@@ -69,9 +69,7 @@ class NcUsersGrid extends PolymerElement {
 
   _userSelected(user){
     if((typeof user.detail.code == 'undefined') || (user.detail.code === '')){
-      this.currentUser = user.detail;
-      this.currentUser.code = '';
-      this.dispatchEvent(new CustomEvent('user-selected-extern', {detail: {user: user.detail}, bubbles: true, composed: true }));
+      this.dispatchEvent(new CustomEvent('user-selected-extern', {detail: user.detail, bubbles: true, composed: true }));
       return
     }
 
