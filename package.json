@@ -10,7 +10,7 @@
     "url": "https://github.com/NEOGRUP/nc-users-grid"
   },
   "name": "@neogrup/nc-users-grid",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
@@ -22,8 +22,13 @@
   "license": "MIT",
   "dependencies": {
     "@neogrup/nc-items-grid": "^2.0.13",
+    "@neogrup/nc-keyboard": "^1.0.6",
     "@neogrup/nc-password-dialog": "^2.0.8",
     "@neogrup/nc-users-grid": "file:",
+    "@polymer/iron-a11y-keys": "^3.0.1",
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-dialog": "^3.0.1",
+    "@polymer/paper-input": "^3.2.1",
     "@polymer/polymer": "^3.3.0"
   },
   "devDependencies": {

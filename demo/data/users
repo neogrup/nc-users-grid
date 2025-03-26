@@ -33,9 +33,21 @@
       "fiscalid": "03",
       "kind": "OP",
       "name": "Empleado 03",
-      "needPassword": "N",
+      "needPassword": "S",
       "session": "S",
       "shortname": "OP 03",
+      "type": "default"
+    }
+    ,
+    {
+      "canSell": "",
+      "code": "",
+      "fiscalid": "",
+      "kind": "OP",
+      "name": "externo",
+      "needPassword": "S",
+      "session": "S",
+      "shortname": "",
       "type": "default"
     }
   ],
