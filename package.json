@@ -10,7 +10,7 @@
     "url": "https://github.com/NEOGRUP/nc-users-grid"
   },
   "name": "@neogrup/nc-users-grid",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
@@ -21,7 +21,7 @@
   "author": "edgar.piera@neogrup.com",
   "license": "MIT",
   "dependencies": {
-    "@neogrup/nc-items-grid": "^2.0.13",
+    "@neogrup/nc-items-grid": "^2.1.23",
     "@neogrup/nc-keyboard": "^1.0.6",
     "@neogrup/nc-password-dialog": "^2.0.8",
     "@neogrup/nc-users-grid": "file:",
